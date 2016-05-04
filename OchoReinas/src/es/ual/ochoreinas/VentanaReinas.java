@@ -11,14 +11,10 @@ import javax.swing.*;
 
 public class VentanaReinas extends Frame {
 
-	public static void main(String[] args) {
-		VentanaReinas world = new VentanaReinas();
-		world.show();
-	}
-
 	private Reina ultimaReina = null;
 
 	public VentanaReinas() {
+		super();
 		setTitle("Problema de las ocho reinas");
 		setSize(600, 500);
 		for (int i = 1; i <= 8; i++) {
@@ -28,7 +24,7 @@ public class VentanaReinas extends Frame {
 		addMouseListener(new MouseKeeper());
 		addWindowListener(new CloseQuit());
 	}
-
+	@Override
 	public void paint(Graphics g) {
 		super.paint(g);
 		// dibuja el tablero
@@ -42,15 +38,22 @@ public class VentanaReinas extends Frame {
 	}
 
 	private class CloseQuit extends WindowAdapter {
+		@Override
 		public void windowClosing(WindowEvent e) {
-			System.exit(0);
+			e.getWindow().dispose();
 		}
 	}
 
 	private class MouseKeeper extends MouseAdapter {
+		@Override
 		public void mousePressed(MouseEvent e) {
 			ultimaReina.avanza();
 			repaint();
 		}
+	}
+
+	public static void main(String[] args) {
+		VentanaReinas world = new VentanaReinas();
+		world.show();
 	}
 }
