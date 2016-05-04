@@ -13,6 +13,11 @@ public class ReinaPaint extends Reina {
 		if (vecina != null)
 			((ReinaPaint) vecina).paint(g);
 		// despues a ella misma
+		
+		this.dibujarReina(g);
+	}
+
+	private void dibujarReina(Graphics g) {
 		// x, y is upper left corner
 		int x = (fila - 1) * 50 + 10;
 		int y = (columna - 1) * 50 + 40;
@@ -26,5 +31,4 @@ public class ReinaPaint extends Reina {
 		g.drawLine(x + 35, y + 20, x + 45, y + 5);
 		g.drawOval(x + 20, y + 20, 10, 10);
 	}
-
 }

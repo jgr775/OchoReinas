@@ -7,14 +7,14 @@ import java.awt.*;
 //revised for 1.3 event model July 2001
 //
 
-class Reina {
+public class Reina {
 	// datos
 	protected int fila;
 	protected int columna;
 	protected Reina vecina;
 
 	// constructor
-	Reina(int c, Reina n) {
+	public Reina(int c, Reina n) {
 		fila = 1;
 		columna = c;
 		vecina = n;
