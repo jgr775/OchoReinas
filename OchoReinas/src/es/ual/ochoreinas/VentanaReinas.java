@@ -4,26 +4,29 @@ package es.ual.ochoreinas;
 //Written by Tim Budd, January 1996
 //revised for 1.3 event model July 2001
 //
-
-import java.awt.*;
-import java.awt.event.*;
-import javax.swing.*;
+import java.awt.Frame;
+import java.awt.Graphics;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
 
 public class VentanaReinas extends Frame {
 
-	private Reina ultimaReina = null;
+	private ReinaPaint ultimaReina = null;
 
 	public VentanaReinas() {
 		super();
 		setTitle("Problema de las ocho reinas");
 		setSize(600, 500);
 		for (int i = 1; i <= 8; i++) {
-			ultimaReina = new Reina(i, ultimaReina);
+			ultimaReina = new ReinaPaint(i, ultimaReina);
 			ultimaReina.buscaSolucion();
 		}
 		addMouseListener(new MouseKeeper());
 		addWindowListener(new CloseQuit());
 	}
+
 	@Override
 	public void paint(Graphics g) {
 		super.paint(g);
@@ -54,6 +57,6 @@ public class VentanaReinas extends Frame {
 
 	public static void main(String[] args) {
 		VentanaReinas world = new VentanaReinas();
-		world.show();
+		world.setVisible(true);
 	}
 }
