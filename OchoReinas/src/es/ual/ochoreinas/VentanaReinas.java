@@ -30,14 +30,17 @@ public class VentanaReinas extends Frame {
 	@Override
 	public void paint(Graphics g) {
 		super.paint(g);
-		// dibuja el tablero
+		dibujarTablero(g);
+		g.drawString("Pulse con para una nueva solución", 20, 470);
+		// draw queens
+		ultimaReina.paint(g);
+	}
+
+	private void dibujarTablero(Graphics g) {
 		for (int i = 0; i <= 8; i++) {
 			g.drawLine(50 * i + 10, 40, 50 * i + 10, 440);
 			g.drawLine(10, 50 * i + 40, 410, 50 * i + 40);
 		}
-		g.drawString("Pulse con para una nueva solución", 20, 470);
-		// draw queens
-		ultimaReina.paint(g);
 	}
 
 	private class CloseQuit extends WindowAdapter {
