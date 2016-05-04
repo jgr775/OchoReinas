@@ -57,7 +57,7 @@ class Reina {
 		// primero dibuja la vecina vecina
 		if (vecina != null)
 			vecina.paint(g);
-		// despues a ella misna
+		// despues a ella misma
 		// x, y is upper left corner
 		int x = (fila - 1) * 50 + 10;
 		int y = (columna - 1) * 50 + 40;
